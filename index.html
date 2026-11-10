@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Ubos – prototyp strony produktu | Łąka i Las</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Karla:wght@400;500;600&display=swap">
+<style>
+*{box-sizing:border-box;font-style:normal!important}
+:root{--bg:#FBFAF6;--beige:#F0ECE3;--line:#E2DDD2;--ink:#1E2925;--soft:#5E6762;--green:#1F3A32;--star:#9A7B4F}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Karla,Arial,sans-serif;font-size:15px;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.w{max-width:1240px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;margin:0;line-height:1.15}
+
+/* pasek + nagłówek */
+.ann{background:var(--beige);text-align:center;font-size:12px;letter-spacing:.06em;padding:9px 16px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+.ann b{font-weight:600}
+header{border-bottom:1px solid var(--line);position:relative;z-index:10;background:var(--bg)}
+header .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:14px}
+.menu{display:flex;gap:22px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.menu > div{position:relative;padding-block:10px}
+.menu > div > a{cursor:pointer}
+.drop{display:none;position:absolute;top:100%;left:-18px;background:var(--bg);border:1px solid var(--line);padding:14px 18px;min-width:260px;flex-direction:column;gap:8px;text-transform:none;letter-spacing:0;font-size:14px;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.menu > div:hover .drop{display:flex}
+.drop.mega{min-width:560px;display:none;grid-template-columns:1fr 1fr;gap:6px 28px}
+.menu > div:hover .drop.mega{display:grid}
+.drop .ttl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);font-weight:600;margin-bottom:2px}
+.drop .best small{display:block;color:var(--soft);font-size:12px}
+.drop .all{grid-column:1/-1;border-top:1px solid var(--line);padding-top:10px;margin-top:6px;font-weight:600}
+.logo{width:58px;height:58px;filter:invert(1)}
+.icons{justify-self:end;display:flex;gap:18px;font-size:13px;align-items:center}
+.crumbs{font-size:12px;color:var(--soft);padding-block:20px}
+
+/* góra produktu */
+.top{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start;padding-bottom:72px}
+.gallery{display:grid;grid-template-columns:72px 1fr;gap:14px;position:sticky;top:20px}
+.thumbs{display:flex;flex-direction:column;gap:10px}
+.thumbs img{aspect-ratio:1;object-fit:cover;opacity:.55;cursor:pointer}
+.thumbs img.on{opacity:1;outline:1px solid var(--ink);outline-offset:2px}
+.main{aspect-ratio:4/5;object-fit:cover;width:100%;background:var(--beige)}
+.info{display:flex;flex-direction:column;gap:18px}
+.info h1{font-size:44px}
+.sub{color:var(--soft);font-size:14px;margin-top:-10px}
+.stars{color:var(--star);font-size:13px;letter-spacing:2px}
+.stars span{color:var(--soft);letter-spacing:0;margin-left:6px}
+.feat{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;font-size:14px;margin:0}
+.feat dt{font-weight:600;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
+.feat dd{margin:0;color:var(--soft)}
+.tagline{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;line-height:1.3}
+.short{color:var(--soft);display:flex;flex-direction:column;gap:10px}
+.price{font-size:22px}
+.price small{display:block;font-size:11px;color:var(--soft)}
+.var{display:flex;gap:8px}
+.var button{border:1px solid var(--line);background:none;padding:9px 18px;font:inherit;font-size:14px;cursor:pointer;color:var(--ink)}
+.var button.on{border-color:var(--ink)}
+.buy{display:flex;gap:10px}
+.qty{border:1px solid var(--line);border-radius:999px;display:flex;align-items:center;gap:18px;padding:0 18px}
+.add{flex:1;background:var(--green);color:#fff;border-radius:999px;text-align:center;padding:14px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.ship{background:var(--beige);padding:14px 18px;font-size:13px;color:var(--soft)}
+.ship b{color:var(--ink)}
+.acc{border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;gap:12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-size:18px;font-weight:400}
+.acc details[open] summary::after{content:"–"}
+.acc .in{padding:0 0 18px;color:var(--soft);display:flex;flex-direction:column;gap:12px}
+.acc .in b{color:var(--ink);display:block}
+.more{font-size:13px;font-weight:600;border-bottom:1px solid var(--ink);align-self:flex-start;color:var(--ink)}
+
+/* moje doświadczenie */
+.story{background:var(--beige);padding-block:72px}
+.story .w{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:center;max-width:1000px}
+.story img{width:220px;height:220px;border-radius:50%;object-fit:cover}
+.story h2{font-size:32px;margin-bottom:14px}
+.story p{color:var(--soft);margin:0 0 12px}
+
+/* opinie, podobne */
+.sec{padding-block:72px}
+.sec h2{font-size:32px;text-align:center;margin-bottom:36px}
+.rev{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;max-width:860px;margin:0 auto;align-items:center}
+.rev .big{text-align:center}
+.rev .big b{font-family:"Cormorant Garamond",serif;font-size:56px;font-weight:500;display:block;line-height:1}
+.bars{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--soft)}
+.bars div{display:grid;grid-template-columns:70px 1fr 20px;gap:10px;align-items:center}
+.bars i{height:6px;background:var(--line);display:block}
+.empty{text-align:center;color:var(--soft);margin-top:28px}
+.btn-o{display:inline-block;margin-top:12px;border:1px solid var(--ink);color:var(--ink);padding:10px 26px;border-radius:999px;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.rel{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.rel a{display:flex;flex-direction:column;gap:8px;text-align:center}
+.rel img{aspect-ratio:4/5;object-fit:cover;width:100%;background:var(--beige)}
+.rel b{font-family:"Cormorant Garamond",serif;font-size:20px;font-weight:500}
+.rel span{font-size:13px;color:var(--soft)}
+.rel s{color:var(--soft);margin-right:6px}
+
+/* newsletter + stopka */
+.nl{background:var(--green);color:#F3F1EA;padding-block:56px}
+.nl .w{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.nl h2{font-size:30px}
+.nl form{display:flex;flex-direction:column;gap:10px}
+.nl .f{display:grid;grid-template-columns:1fr 1fr auto;gap:8px}
+.nl input{padding:12px 14px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font:inherit}
+.nl button{padding:12px 22px;border:0;background:#F3F1EA;color:var(--green);font:inherit;font-weight:600;cursor:pointer}
+.nl small{font-size:11px;opacity:.75;line-height:1.5}
+footer{padding-block:56px 28px;font-size:14px}
+footer .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+footer h4{font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px}
+footer .cols div{display:flex;flex-direction:column;gap:6px;color:var(--soft)}
+footer .copy{border-top:1px solid var(--line);margin-top:40px;padding-top:20px;font-size:12px;color:var(--soft)}
+
+@media (max-width:860px){.w{padding:0 16px}.top{grid-template-columns:1fr;gap:28px}.gallery{position:static;grid-template-columns:1fr}.thumbs{flex-direction:row;order:2}.thumbs img{width:64px}.menu{display:none}.story .w,.rev,.nl .w,footer .cols{grid-template-columns:1fr}.rel{grid-template-columns:1fr 1fr}.nl .f{grid-template-columns:1fr}}
+</style></head><body>
+
+<div class="ann"><span><b>Darmowa wysyłka</b> na zamówienia od 300 zł na terenie Polski</span><span>🌿 Soplówka Jeżowata wróciła do sklepu · zobacz »</span></div>
+
+<header><div class="w">
+  <nav class="menu">
+    <div><a>Sklep</a>
+      <div class="drop mega">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span class="ttl">Obszary wsparcia</span>
+          <a>Układ nerwowy, stres i sen</a><a>Umysł i koncentracja</a><a>Energia kobieca i harmonia</a><a>Odporność i witalność</a>
+          <span class="ttl" style="margin-top:8px">Rodzaj dóbr</span>
+          <a>Grzyby adaptogenne</a><a>Rośliny Nauczycielskie & Ekstrakty</a><a>Sesje 1:1 i spotkania</a><a>Ebooki, medytacje</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span class="ttl">Bestsellery</span>
+          <a class="best">Soplówka Jeżowata<small>Umysł, pamięć i układ nerwowy</small></a>
+          <a class="best">Bobinsana<small>Otwarcie serca, sny i głęboki spokój</small></a>
+          <a class="best">Kakao Ceremonialne 100%<small>Czysta energia i łagodne uziemienie</small></a>
+          <a class="best">Olejek Łąka i Las<small>Uwolnienie napięć, spokojny sen</small></a>
+        </div>
+        <a class="all">Nie wiesz, od czego zacząć? Zobacz wszystkie Dobra →</a>
+      </div>
+    </div>
+    <div><a>Terapie</a>
+      <div class="drop"><a>Trening świadomości</a><a>Integracja doświadczeń Bobinsana</a><a>Ceremonia RAPÉ</a><a>Biodynamiczna Terapia Czaszkowo-Krzyżowa</a><a>Myofascial Energetic Release</a><a>Rośliny, Ciało, Terapia</a><a>Opinie i artykuły</a><a>Dyplomy</a></div>
+    </div>
+    <div><a>O mnie</a></div>
+    <div><a>Plemię</a><div class="drop"><a>Plemię</a><a>Znajdź nas</a></div></div>
+    <div><a>Wydarzenia</a></div>
+    <div><a>Blog</a></div>
+    <div><a>Kontakt</a></div>
+  </nav>
+  <img class="logo" src="img/logo.png" alt="Łąka i Las">
+  <div class="icons"><span>PL / EN</span><span>Szukaj</span><span>0,00 zł · Koszyk</span></div>
+</div></header>
+
+<div class="w crumbs">Strona główna / Rośliny Nauczycielskie & Ekstrakty / Ubos</div>
+
+<section class="w top">
+  <div class="gallery">
+    <div class="thumbs"><img class="on" src="img/ubos.jpg" alt=""><img src="img/ubos2.jpg" alt=""></div>
+    <img class="main" id="main" src="img/ubos.jpg" alt="Ekstrakt Ubos">
+  </div>
+  <div class="info">
+    <h1>Ubos</h1>
+    <p class="sub">Spondias mombin · ekstrakt · Roślina Nauczycielska</p>
+    <div class="stars">☆☆☆☆☆<span>Opinie (0)</span></div>
+    <dl class="feat">
+      <dt>Wspiera</dt><dd>Energia kobieca i harmonia, Układ nerwowy, stres i sen</dd>
+      <dt>Czakra</dt><dd>Czakra podstawy</dd>
+      <dt>Objętość</dt><dd>10 ml, 30 ml</dd>
+    </dl>
+    <p class="tagline">Głęboka regulacja, matczyna energia i otwarcie na kontakt z naturą</p>
+    <div class="short">
+      <p>Ubos (Spondias mombin) to potężne, strzeliste drzewo z amazońskiej dżungli. W tradycjach rdzennych kultur Amazonii zaliczane jest do Roślin Nauczycielskich – takich, które zmieniają nasze ciało, emocje albo sposób myślenia, i przez to pokazują nam coś ważnego o nas samych.</p>
+      <p>To Roślina, która reprezentuje archetyp dojrzałej, zintegrowanej kobiecości. Daje nam potężną matczyną opiekę i uczy głębokiego słuchania ciała, jego rytmów oraz otwarcia na świat natury.</p>
+    </div>
+    <div class="price"><span id="price">143,00 zł</span><small>Najniższa cena z ostatnich 30 dni: 143,00 zł</small></div>
+    <div class="var"><button class="on" data-p="143,00 zł">10 ml</button><button data-p="269,00 zł">30 ml</button></div>
+    <div class="buy"><div class="qty">– <span>1</span> +</div><div class="add">Dodaj do koszyka</div></div>
+    <div class="ship"><b>Zestawy taniej:</b> 3 szt. −10%, 5 szt. −15%, 10 szt. −20%. <b>Darmowa wysyłka</b> od 300 zł.</div>
+
+    <div class="acc">
+      <details open><summary>Kiedy warto sięgnąć po wsparcie Ubosa?</summary><div class="in">
+        <p><b>Szukasz oparcia w archetypie Wewnętrznej Matki</b>Potrzebujesz dojrzałej, stabilnej energii, która da poczucie bezpieczeństwa Twoim wrażliwym częściom i pomoże Ci powrócić do własnego centrum.</p>
+        <p><b>Twój układ nerwowy potrzebuje regulacji</b>Szukasz uziemienia i pełnego relaksu, by Twój przeciążony układ nerwowy mógł na nowo odzyskać spokój i równowagę.</p>
+        <p><b>Pragniesz głębszej komunikacji z żywym światem wokół nas</b>Chcesz wyciszyć zewnętrzny hałas i otworzyć swoje „czułki” na głos Plemion Roślin i Zwierząt, a dzięki temu zyskać dostęp do percepcji bardziej subtelnych warstw rzeczywistości.</p>
+        <p><b>Dążysz do wewnętrznej integralności</b>Chcesz stanąć w roli Strażniczki swojego wnętrza, połączyć kobiecość z konkretną siłą, która bez lęku dba o swoją autonomię i suwerenność.</p>
+      </div></details>
+      <details><summary>Trzy główne wymiary pracy z Ubosem</summary><div class="in">
+        <p><b>1. Głęboka regulacja i powrót do naturalnego rytmu</b>Ubos uczy, że regeneracja to nie luksus, ale podstawa naszej witalności. Jego obecność wspiera układ nerwowy w przechodzeniu z ciągłej gotowości do stanu pełnego rozluźnienia. Pomaga poddać się naturalnym cyklom czuwania, odpoczynku i głębokiego, odżywczego snu.</p>
+        <p><b>2. Matczyna opieka i wewnętrzne porządkowanie</b>Ubos niesie w sobie potężną, a zarazem czułą energię matczynej troski. Stwarza bezpieczną przestrzeń, w której wszystko powoli wraca na właściwe miejsce, a nasze wnętrze wypełnia energetyczny ład i spokój.</p>
+        <p><b>3. Otwarcie na świat natury i głębokie słuchanie</b>Praca z tą Rośliną wycisza zewnętrzny hałas i otwiera na mądrość płynącą z otoczenia. Ubos ułatwia kontakt z głębią natury — uczy, jak słuchać głosów roślin i zwierząt, rozwija naszą receptywność na świat wokół, a przy tym łagodnie przypomina o szacunku do własnej przestrzeni i potrzeb.</p>
+      </div></details>
+      <details><summary>Informacje dodatkowe</summary><div class="in">
+        <p><b>Ekstrakt do praktyk medytacyjnych oraz duchowych.</b></p>
+        <p>Zgodnie z obowiązującymi regulacjami prawnymi, Ekstrakt z Ubosa nie jest klasyfikowany jako środek spożywczy ani suplement diety. Jest przeznaczony wyłącznie do użytku zewnętrznego w ramach praktyk duchowych i medytacyjnych.</p>
+        <p>Termin przydatności: 12 miesięcy od otwarcia.</p>
+        <p>Objętość: 10 ml, 30 ml</p>
+      </div></details>
+    </div>
+    <a class="more">Dowiedz się więcej o Ubosie →</a>
+  </div>
+</section>
+
+<section class="story"><div class="w">
+  <img src="img/justyna.jpg" alt="Justyna Zawadzka">
+  <div>
+    <h2>Moje doświadczenie</h2>
+    <p>Moje pierwsze spotkanie z Ubosem miało miejsce w Peru, podczas wyprawy w głąb dżungli. Poczułam wtedy jego ciche, regulujące działanie na układ nerwowy, ale w tamtym momencie nie miałam żadnych gwałtownych wglądów.</p>
+    <p>Dopiero po czasie, tu w Polsce, podczas diety, Ubos odsłonił przede mną swoje subtelne działanie. Podczas całodziennego spaceru po lesie poddałam się rytmowi, który narzucało ciało – szłam pełna energii, by po chwili poczuć potrzebę drzemki pod drzewem. Budziłam się odświeżona i szłam dalej. Poddanie się temu cyklowi było dokładnie tym, czego potrzebowało moje ciało do głębokiej regulacji. Zauważyłam też, jak mocno otworzyła się we mnie wrażliwość na świat zwierząt i łatwość w nawiązywaniu kontaktu z nimi.</p>
+  </div>
+</div></section>
+
+<section class="w sec">
+  <h2>Opinie</h2>
+  <div class="rev">
+    <div class="big"><b>–</b><div class="stars">☆☆☆☆☆</div><span style="font-size:13px;color:var(--soft)">Na razie brak opinii</span></div>
+    <div class="bars"><div>★★★★★<i></i>0</div><div>★★★★<i></i>0</div><div>★★★<i></i>0</div><div>★★<i></i>0</div><div>★<i></i>0</div></div>
+  </div>
+  <div class="empty">Jako pierwsza dodaj opinię „UBOS”<br><a class="btn-o">Napisz opinię</a></div>
+</section>
+
+<section class="w sec" style="padding-top:0">
+  <h2>Podobne produkty</h2>
+  <div class="rel">
+    <a><img src="img/justyna.jpg" alt=""><b>Sesja 1:1</b><span>555,00 zł</span></a>
+    <a><img src="img/soplowka.jpg" alt=""><b>Soplówka Jeżowata</b><span>149,00 zł</span></a>
+    <a><img src="img/kopal.jpg" alt=""><b>Czarny Kopal z Peru</b><span>49,00 zł</span></a>
+    <a><img src="img/pakiet.jpg" alt=""><b>Pakiet ISKRA i CISZA</b><span><s>313,00 zł</s>250,00 zł</span></a>
+  </div>
+</section>
+
+<section class="nl"><div class="w">
+  <h2>Zapisz się do newslettera, by uzyskać 5% rabatu na pierwsze zakupy</h2>
+  <form onsubmit="event.preventDefault()">
+    <div class="f"><input placeholder="Imię" aria-label="Imię"><input placeholder="Email" aria-label="Email"><button>Zapisuję się</button></div>
+    <small>W każdej chwili możesz zrezygnować z newslettera. Polityka prywatności.<br>Wyrażam zgodę na przetwarzanie moich danych przez BOBINSANA LTD. Chcę otrzymywać wiadomości e-mail w ramach usługi „Newsletter”, zgodnie z art. 10 ust. 2 ustawy o świadczeniu usług drogą elektroniczną oraz art. 172 ust. 1 ustawy Prawo telekomunikacyjne.</small>
+  </form>
+</div></section>
+
+<footer><div class="w">
+  <div class="cols">
+    <div><h4>Social media</h4><a>Instagram</a><a>Facebook Łąki i Lasu</a><a>Facebook Justyna Zawadzka Terapia Ciała</a><a>YouTube</a><a>TikTok</a></div>
+    <div><h4>Kontakt</h4><span>Masz pytania w sprawie wysyłki?<br>Waszymi wysyłkami zajmuje się Patrycja</span><span>wysylki@lakailas.pl</span><span>663 092 319 (w godzinach: 9-15)</span><span style="margin-top:8px">Pozostałe pytania</span><span>kontakt@lakailas.pl</span></div>
+    <div><h4>Informacje</h4><a>Polityka prywatności</a><a>Regulamin</a><a>Zwroty i reklamacje</a></div>
+  </div>
+  <div class="copy">Copyright © 2026 - Łąka i Las | Wdrożenie 13design</div>
+</div></footer>
+
+<script>
+document.querySelectorAll('.thumbs img').forEach(t=>t.onclick=()=>{document.getElementById('main').src=t.src;document.querySelectorAll('.thumbs img').forEach(x=>x.classList.toggle('on',x===t))});
+document.querySelectorAll('.var button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.var button').forEach(x=>x.classList.toggle('on',x===b));document.getElementById('price').textContent=b.dataset.p});
+</script>
+</body></html>
