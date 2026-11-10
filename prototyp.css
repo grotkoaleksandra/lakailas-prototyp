@@ -56,3 +56,18 @@ img[src*="-krem.png"] { filter: brightness(0) invert(.2); }
 
 /* opis produktu: bez ciemnych bloków w środku tekstu */
 .woocommerce-Tabs-panel .kt-inside-inner-col, .woocommerce-Tabs-panel .has-background { background: transparent !important; }
+
+/* ---------- 2. CZCIONKI: Cormorant Garamond (nagłówki) + Mulish (tekst) ---------- */
+:root, body { --lil-font-head: "Cormorant Garamond", Georgia, serif; --lil-font-body: "Mulish", Arial, sans-serif; }
+body, p, li, a, span, div, input, textarea, select, button, label, td, th,
+.ct-menu-link, .button, .wp-block-button__link, .kb-button, .price, .woocommerce-breadcrumb {
+  font-family: var(--lil-font-body) !important;
+}
+h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
+.entry-title, .page-title, .product_title, .woocommerce-loop-product__title, .woocommerce-loop-product__title a,
+.widget-title, .ct-module-title, .wp-block-kadence-advancedheading:not(p), blockquote, blockquote p {
+  font-family: var(--lil-font-head) !important; font-weight: 600 !important; letter-spacing: .005em;
+}
+/* ikony zostają ikonami */
+[class*="fa-"], .dashicons, [class^="icon-"], .star-rating, .star-rating * { font-family: revert-layer; }
+.star-rating, .star-rating::before, .star-rating span::before { font-family: star !important; }
