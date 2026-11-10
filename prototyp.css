@@ -1,0 +1,44 @@
+/* ================================================================
+   PROTOTYP – nasze zmiany nakładane na kopię lakailas.pl
+   Ten plik ładuje się na każdej stronie kopii. Zmieniamy tylko tutaj.
+   ================================================================ */
+
+/* ---------- 1. KOLORY: jasna, kremowa paleta ---------- */
+:root, body {
+  --lil-cream: #F6F2EA;   /* główne tło */
+  --lil-sand:  #ECE6DA;   /* tło sekcji wyróżnionych */
+  --lil-ink:   #26332F;   /* tekst */
+  --lil-green: #17332C;   /* nagłówki, stopka */
+  --lil-plum:  #7A3E6A;   /* akcent: przyciski, linki */
+  --lil-line:  #DDD6C8;   /* linie */
+
+  --theme-palette-color-5: var(--lil-cream) !important;
+  --theme-palette-color-7: var(--lil-cream) !important;
+  --theme-palette-color-6: var(--lil-sand) !important;
+  --theme-text-color: var(--lil-ink) !important;
+  --theme-headings-color: var(--lil-green) !important;
+  --theme-border-color: var(--lil-line) !important;
+}
+body { background: var(--lil-cream) !important; color: var(--lil-ink) !important; }
+
+/* sekcje, które były ciemnozielone */
+.kb-row-layout-wrap[class*="kb-row-layout-id225_277d25"],
+.kb-row-layout-wrap[class*="kb-row-layout-id225_164d85"],
+.kb-row-layout-wrap[class*="kb-row-layout-id225_d394b6"],
+#lil-search-panel, .ct-panel-inner, .woocommerce-info, .woocommerce-notices-wrapper {
+  background-color: var(--lil-sand) !important; color: var(--lil-ink) !important;
+}
+
+/* karty produktów */
+.woocommerce-loop-product__title a, .custom-loop-extra-text, .custom-loop-extra-text p { color: var(--lil-green) !important; }
+.star-rating span, .star-rating strong { color: #B08A4E !important; }
+
+/* listy, newsletter, drobne etykiety */
+.kt-svg-icon-list-text, .kt-svg-icon-list-text a { color: inherit !important; }
+.lil-mlf-form label, .lil-mlf-consent p, .lil-mlf-consent a { color: var(--lil-ink) !important; }
+.ll-news-label strong { color: #5F7D6E !important; }
+
+/* stopka zostaje ciemnozielona */
+footer#footer, footer#footer [data-row] { background-color: var(--lil-green) !important; color: #F1EEE6 !important; }
+footer#footer a, footer#footer p, footer#footer h2, footer#footer h3, footer#footer strong, footer#footer em,
+footer#footer .kt-svg-icon-list-text { color: #F1EEE6 !important; }
