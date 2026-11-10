@@ -42,3 +42,14 @@ body { background: var(--lil-cream) !important; color: var(--lil-ink) !important
 footer#footer, footer#footer [data-row] { background-color: var(--lil-green) !important; color: #F1EEE6 !important; }
 footer#footer a, footer#footer p, footer#footer h2, footer#footer h3, footer#footer strong, footer#footer em,
 footer#footer .kt-svg-icon-list-text { color: #F1EEE6 !important; }
+
+/* nagłówek: ciemnozielony pas z jasnym menu (logo jest białe) */
+body:not(.home) #header [data-row] { background-color: var(--lil-green) !important; }
+#header [data-row] .ct-menu-link, #header [data-row] a, #header [data-row] .ct-label,
+#header [data-row] .ct-header-text, #header [data-row] .ct-header-text strong { color: #F1EEE6 !important; }
+#header [data-row] svg { fill: #F1EEE6 !important; }
+#header .sub-menu, #header .sub-menu .ct-menu-link { color: var(--lil-ink) !important; }
+#header .sub-menu { background-color: var(--lil-cream) !important; }
+
+/* kremowe ikony były niewidoczne na jasnym tle */
+img[src*="-krem.png"] { filter: brightness(0) invert(.2); }
