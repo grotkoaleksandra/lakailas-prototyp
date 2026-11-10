@@ -5,12 +5,12 @@
 
 /* ---------- 1. KOLORY: jasna, kremowa paleta ---------- */
 :root, body {
-  --lil-cream: #F6F2EA;   /* główne tło */
-  --lil-sand:  #ECE6DA;   /* tło sekcji wyróżnionych */
+  --lil-cream: #FAF1DE;   /* główne tło */
+  --lil-sand:  #F1E3C8;   /* tło sekcji wyróżnionych */
   --lil-ink:   #26332F;   /* tekst */
   --lil-green: #17332C;   /* nagłówki, stopka */
   --lil-plum:  #7A3E6A;   /* akcent: przyciski, linki */
-  --lil-line:  #DDD6C8;   /* linie */
+  --lil-line:  #E4D5B7;   /* linie */
 
   --theme-palette-color-5: var(--lil-cream) !important;
   --theme-palette-color-7: var(--lil-cream) !important;
@@ -53,3 +53,6 @@ body:not(.home) #header [data-row] { background-color: var(--lil-green) !importa
 
 /* kremowe ikony były niewidoczne na jasnym tle */
 img[src*="-krem.png"] { filter: brightness(0) invert(.2); }
+
+/* opis produktu: bez ciemnych bloków w środku tekstu */
+.woocommerce-Tabs-panel .kt-inside-inner-col, .woocommerce-Tabs-panel .has-background { background: transparent !important; }
