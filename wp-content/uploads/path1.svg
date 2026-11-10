@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" version="1.1" id="svg1" width="23.238901" height="20.295982" viewBox="0 0 23.238901 20.295982" sodipodi:docname="path1.svg" inkscape:version="1.4 (e7c3feb100, 2024-10-09)" inkscape:export-filename="path1.pdf" inkscape:export-xdpi="199.91805" inkscape:export-ydpi="199.91805">
+  <defs id="defs1">
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient2038" id="linearGradient2039" x1="41.223625" y1="2.9832885" x2="47.235405" y2="18.577751" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0.80672971,0,0,0.80672971,-30.990396,0.84340363)"></linearGradient>
+    <linearGradient id="linearGradient2038" inkscape:collect="always">
+      <stop style="stop-color:#ffffff;stop-opacity:1" offset="0" id="stop2038"></stop>
+      <stop style="stop-color:#e49090;stop-opacity:1" offset="0.53781283" id="stop2040"></stop>
+      <stop style="stop-color:#497fa5;stop-opacity:1" offset="1" id="stop2039"></stop>
+    </linearGradient>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient2036" id="linearGradient2037" x1="42.406605" y1="-1.3380971" x2="51.950672" y2="21.053507" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0.80672971,0,0,0.80672971,-30.990396,0.84340363)"></linearGradient>
+    <linearGradient id="linearGradient2036" inkscape:collect="always">
+      <stop style="stop-color:#497fa5;stop-opacity:1" offset="0" id="stop2036"></stop>
+      <stop style="stop-color:#e4b9a4;stop-opacity:1" offset="0.51954561" id="stop2041"></stop>
+      <stop style="stop-color:#e3baa5;stop-opacity:1" offset="0.62577802" id="stop2042"></stop>
+      <stop style="stop-color:#497fa5;stop-opacity:1" offset="1" id="stop2037"></stop>
+    </linearGradient>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient2038" id="linearGradient2042" gradientUnits="userSpaceOnUse" x1="41.223625" y1="2.9832885" x2="47.235405" y2="18.577751" gradientTransform="matrix(-0.80672971,0,0,0.80672971,54.065167,0.86086443)"></linearGradient>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient2036" id="linearGradient2043" gradientUnits="userSpaceOnUse" x1="42.406605" y1="-1.3380971" x2="51.950672" y2="21.053507" gradientTransform="matrix(-0.80672971,0,0,0.80672971,54.065167,0.86086443)"></linearGradient>
+  </defs>
+  <g inkscape:groupmode="layer" inkscape:label="Image" id="g1" style="display:none">
+    <rect style="fill:#ffffff" id="rect2035" width="72.774162" height="52.975975" x="33.647343" y="-6.9611011"></rect>
+  </g>
+  <g inkscape:groupmode="layer" id="layer1" inkscape:label="kształt">
+    <path style="fill:url(#linearGradient2039);fill-opacity:1;stroke-width:0.80673" d="M 10.886201,17.891414 C 11.104809,7.2503386 6.2589292,8.7214462 5.8001428,1.5502748 2.496529,3.5076221 1.1674209,6.6629837 2.1902654,11.245372 c 1.6872558,5.030681 5.6164627,6.51148 8.6959356,6.646042 z" id="path2036" sodipodi:nodetypes="cccc" inkscape:export-filename="path2036.pdf" inkscape:export-xdpi="199.91805" inkscape:export-ydpi="199.91805"></path>
+    <path style="fill:url(#linearGradient2037);fill-opacity:1;stroke-width:0.80673" d="M 10.878123,17.885041 C 11.096731,7.2439654 6.2547673,8.7391932 5.7959809,1.5680222 3.7602404,10.724725 9.9491578,11.486374 10.878123,17.885041 Z" id="path2036-3" sodipodi:nodetypes="ccc"></path>
+    <path style="fill:url(#linearGradient2042);fill-opacity:1;stroke-width:0.80673" d="M 12.18857,17.908875 C 11.969962,7.2677992 16.815842,8.7389072 17.27463,1.5677356 c 3.303614,1.9573474 4.632718,5.112709 3.609873,9.6950974 -1.687251,5.030681 -5.61646,6.511479 -8.695933,6.646042 z" id="path2036-7" sodipodi:nodetypes="cccc"></path>
+    <path style="fill:url(#linearGradient2043);fill-opacity:1;stroke-width:0.80673" d="M 12.192742,17.898596 C 11.974134,7.25752 16.814827,8.7676262 17.273614,1.5964545 19.309356,10.753157 13.121707,11.499928 12.192742,17.898596 Z" id="path2036-3-5" sodipodi:nodetypes="ccc"></path>
+  </g>
+</svg>

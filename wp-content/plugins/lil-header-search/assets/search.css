@@ -1,0 +1,276 @@
+/* =============================================================
+   Łąka i Las – Header Search  |  v1.3.0
+   ============================================================= */
+
+/* ── Trigger button ───────────────────────────────────────── */
+.lil-search-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 10px;
+    color: #ffffff;
+    opacity: .8;
+    transition: opacity .2s ease;
+    line-height: 1;
+    vertical-align: middle;
+}
+.lil-search-btn:hover,
+.lil-search-btn[aria-expanded="true"] { opacity: 1; }
+.lil-search-btn svg { display: block; pointer-events: none; }
+
+/* ── Overlay ──────────────────────────────────────────────── */
+.lil-search-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .4);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+.lil-search-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ── Panel – dropdown pod headerem ───────────────────────── */
+.lil-search-panel {
+    position: fixed;
+    /* top ustawiane dynamicznie przez JS (= dolna krawędź headera) */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+
+    /* kolor tła ustawiany przez JS z headera; fallback */
+    background: #0f3a3c;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
+
+    max-height: 70vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+
+    /* schowanie: opacity + visibility (niezawodne niezależnie od top/height) */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
+    pointer-events: none;
+}
+.lil-search-panel.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* ── Wewnętrzny kontener (ogranicza szerokość treści) ─────── */
+.lil-search-panel-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+/* ── Input bar ────────────────────────────────────────────── */
+.lil-search-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+.lil-search-field {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, .08);
+    border-radius: 10px;
+    padding: 10px 14px;
+    min-width: 0;
+    transition: background .15s;
+}
+.lil-search-field:focus-within {
+    background: rgba(255, 255, 255, .12);
+    outline: 2px solid #7aaa8a;
+    outline-offset: 0;
+}
+.lil-search-field-icon { color: rgba(255, 255, 255, .4); flex-shrink: 0; }
+
+.lil-search-input {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #fff;
+    min-width: 0;
+    font-family: inherit;
+}
+.lil-search-input::placeholder { color: rgba(255, 255, 255, .35); }
+.lil-search-input::-webkit-search-cancel-button { display: none; }
+
+.lil-search-clear {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, .4);
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 4px;
+    transition: color .15s;
+}
+.lil-search-clear:hover { color: rgba(255, 255, 255, .8); }
+
+.lil-search-panel-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, .5);
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    transition: background .15s, color .15s;
+}
+.lil-search-panel-close:hover {
+    background: rgba(255, 255, 255, .08);
+    color: #fff;
+}
+
+/* ── Results grid ─────────────────────────────────────────── */
+.lil-search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0 32px;
+    padding: 4px 0 24px;
+}
+.lil-search-results:empty { padding: 0; }
+
+/* Group */
+.lil-srg { padding-top: 20px; }
+.lil-srg-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .35);
+    margin-bottom: 6px;
+    padding: 0 6px;
+}
+.lil-srg-items { display: flex; flex-direction: column; gap: 2px; }
+
+/* Item */
+.lil-sri {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 9px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: background .15s;
+    min-width: 0;
+}
+.lil-sri:hover { background: rgba(255, 255, 255, .07); }
+.lil-sri:focus-visible { outline: 2px solid #7aaa8a; outline-offset: 2px; }
+
+/* Thumbnail */
+.lil-sri-thumb {
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, .08);
+}
+.lil-sri-thumb-ph {
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .07);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, .25);
+}
+
+/* Text */
+.lil-sri-info { flex: 1; min-width: 0; }
+.lil-sri-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+.lil-sri-sub {
+    font-size: 12px;
+    color: rgba(255, 255, 255, .5);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Price */
+.lil-sri-price {
+    font-size: 13px;
+    font-weight: 700;
+    color: #8cc9a0;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-align: right;
+}
+.lil-sri-price del { color: rgba(255,255,255,.3); font-weight: 400; display: block; font-size: 11px; }
+.lil-sri-price ins { text-decoration: none; }
+
+/* Status */
+.lil-search-status {
+    grid-column: 1 / -1;
+    padding: 28px 10px;
+    text-align: center;
+    color: rgba(255, 255, 255, .35);
+    font-size: 13px;
+}
+.lil-search-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255,255,255,.15);
+    border-top-color: #7aaa8a;
+    border-radius: 50%;
+    animation: lil-spin .7s linear infinite;
+    margin-bottom: 8px;
+}
+@keyframes lil-spin { to { transform: rotate(360deg); } }
+
+/* ── MOBILE: full-screen ──────────────────────────────────── */
+@media (max-width: 768px) {
+    .lil-search-panel {
+        top: 0 !important;
+        max-height: 92vh;
+    }
+    .lil-search-panel-wrap { padding: 0 16px; }
+    .lil-search-results { grid-template-columns: 1fr; gap: 0; }
+    .lil-search-panel.is-open { transform: translateY(0); }
+}
+
+/* ── Reduce motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .lil-search-panel,
+    .lil-search-overlay,
+    .lil-search-spinner { transition: none; animation: none; }
+}
