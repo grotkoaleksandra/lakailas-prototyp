@@ -20,8 +20,9 @@
     var hero = sl.parentElement, hd = document.getElementById('header');
     var place = function () {
       if (!hd) return;
-      var over = getComputedStyle(hd).position === 'absolute' || getComputedStyle(hd).position === 'fixed';
-      hero.style.marginTop = over ? hd.getBoundingClientRect().height + 'px' : '0px';
+      var dev = [].filter.call(hd.querySelectorAll('[data-device]'), function (d) { return d.offsetHeight > 0; })[0];
+      var over = dev && dev.hasAttribute('data-transparent');
+      hero.style.marginTop = over ? Math.round(dev.getBoundingClientRect().height) + 'px' : '0px';
     };
     place(); window.addEventListener('resize', place); window.addEventListener('load', place);
   }

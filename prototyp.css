@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
 .star-rating, .star-rating::before, .star-rating span::before { font-family: star !important; }
 
 /* nagłówek ciemnozielony także na stronie głównej */
-body.home #header [data-row] { background-color: var(--lil-green) !important; }
+#header [data-row], #header [data-transparent-row="yes"] { background-color: var(--lil-green) !important; background-image: none !important; }
 
 /* ---------- 3. STRONA GŁÓWNA: hero z przewijanymi slajdami ---------- */
 .lil-hero { position: relative; line-height: 1.4 !important; }
