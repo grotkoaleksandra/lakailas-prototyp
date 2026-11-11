@@ -102,3 +102,5 @@ h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
 /* ---------- 4. KARTY PRODUKTÓW: kwadratowe zdjęcia ---------- */
 ul.products .ct-media-container, [data-products] .ct-media-container { aspect-ratio: 1 / 1 !important; }
 ul.products .ct-media-container img, [data-products] .ct-media-container img { aspect-ratio: 1 / 1 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; }
+#header [data-device][data-transparent], #header [data-device] .ct-sticky-container,
+html body #header [data-device] [data-row][data-transparent-row] { background-color: var(--lil-green) !important; }
