@@ -16,14 +16,11 @@
     document.querySelector('.lil-next').onclick = function () { go(cur() + 1); restart(); };
     var restart = function () { clearInterval(timer); timer = setInterval(function () { go(cur() + 1); }, 7000); };
     restart();
-    // hero zaczyna się pod nagłówkiem, nie pod nim schowany
-    var hero = sl.parentElement, hd = document.getElementById('header');
-    var place = function () {
-      if (!hd) return;
-      var dev = [].filter.call(hd.querySelectorAll('[data-device]'), function (d) { return d.offsetHeight > 0; })[0];
-      var over = dev && dev.hasAttribute('data-transparent');
-      hero.style.marginTop = over ? Math.round(dev.getBoundingClientRect().height) + 'px' : '0px';
-    };
-    place(); window.addEventListener('resize', place); window.addEventListener('load', place);
+  }
+  // nagłówek: klasa po przewinięciu strony
+  var hdr = document.getElementById('header');
+  if (hdr) {
+    var onS = function () { hdr.classList.toggle('lil-scrolled', window.scrollY > 40); };
+    window.addEventListener('scroll', onS, { passive: true }); onS();
   }
 })();

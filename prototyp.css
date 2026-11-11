@@ -43,14 +43,6 @@ footer#footer, footer#footer [data-row] { background-color: var(--lil-green) !im
 footer#footer a, footer#footer p, footer#footer h2, footer#footer h3, footer#footer strong, footer#footer em,
 footer#footer .kt-svg-icon-list-text { color: #F1EEE6 !important; }
 
-/* nagłówek: ciemnozielony pas z jasnym menu (logo jest białe) */
-body:not(.home) #header [data-row] { background-color: var(--lil-green) !important; }
-#header [data-row] .ct-menu-link, #header [data-row] a, #header [data-row] .ct-label,
-#header [data-row] .ct-header-text, #header [data-row] .ct-header-text strong { color: #F1EEE6 !important; }
-#header [data-row] svg { fill: #F1EEE6 !important; }
-#header .sub-menu, #header .sub-menu .ct-menu-link { color: var(--lil-ink) !important; }
-#header .sub-menu { background-color: var(--lil-cream) !important; }
-
 /* kremowe ikony były niewidoczne na jasnym tle */
 img[src*="-krem.png"] { filter: brightness(0) invert(.2); }
 
@@ -72,8 +64,6 @@ h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
 [class*="fa-"], .dashicons, [class^="icon-"], .star-rating, .star-rating * { font-family: revert-layer; }
 .star-rating, .star-rating::before, .star-rating span::before { font-family: star !important; }
 
-/* nagłówek ciemnozielony także na stronie głównej */
-#header [data-row], #header [data-transparent-row="yes"] { background-color: var(--lil-green) !important; background-image: none !important; }
 
 /* ---------- 3. STRONA GŁÓWNA: hero z przewijanymi slajdami ---------- */
 .lil-hero { position: relative; line-height: 1.4 !important; }
@@ -102,5 +92,17 @@ h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
 /* ---------- 4. KARTY PRODUKTÓW: kwadratowe zdjęcia ---------- */
 ul.products .ct-media-container, [data-products] .ct-media-container { aspect-ratio: 1 / 1 !important; }
 ul.products .ct-media-container img, [data-products] .ct-media-container img { aspect-ratio: 1 / 1 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; }
-#header [data-device][data-transparent], #header [data-device] .ct-sticky-container,
-html body #header [data-device] [data-row][data-transparent-row] { background-color: var(--lil-green) !important; }
+
+/* ---------- 5. NAGŁÓWEK: przezroczysty i przyklejony ---------- */
+/* wąski pasek z informacją zostaje ciemnozielony */
+html body #header [data-device] [data-row="top"] { background-color: var(--lil-green) !important; background-image: none !important; }
+#header [data-row="top"], #header [data-row="top"] * { color: #F1EEE6 !important; }
+/* główny pas: bez tła, ciemne logo i menu */
+html body #header [data-device] [data-row="middle"] { background-color: transparent !important; background-image: none !important; box-shadow: none !important; transition: background-color .25s; }
+#header [data-row="middle"] .ct-menu-link, #header [data-row="middle"] a, #header [data-row="middle"] .ct-label, #header [data-row="middle"] .ct-header-text { color: var(--lil-green) !important; }
+#header [data-row="middle"] svg { fill: var(--lil-green) !important; }
+#header [data-row="middle"] .site-logo-container img, #header [data-row="middle"] img.custom-logo, #header [data-row="middle"] .default-logo { filter: invert(1) brightness(.5) sepia(1) hue-rotate(110deg) saturate(1.6) brightness(.55); }
+/* po przewinięciu: kremowe, lekko przezroczyste tło */
+html body #header.lil-scrolled [data-device] [data-row="middle"] { background-color: rgba(250, 241, 222, .93) !important; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--lil-line) !important; }
+#header .sub-menu, #header .sub-menu .ct-menu-link { color: var(--lil-ink) !important; }
+#header .sub-menu { background-color: var(--lil-cream) !important; }
