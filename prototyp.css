@@ -231,3 +231,24 @@ html body .kb-row-layout-id225_d394b6-a7 { background: var(--lil-cream) !importa
 @media (max-width: 860px) {
   .kb-row-layout-id225_d394b6-a7 > .kt-row-column-wrap { grid-template-columns: 1fr !important; row-gap: 36px !important; padding: 56px 20px !important; }
 }
+
+/* pasek z produktem na dole ekranu: ciemnozielony z jasnym tekstem */
+html body .ct-floating-bar, html body .ct-floating-bar > *, html body .ct-floating-bar section, html body .ct-floating-bar .ct-container { background-color: var(--lil-green) !important; border-top: 0 !important; }
+html body .ct-floating-bar, html body .ct-floating-bar *, html body .ct-floating-bar .price, html body .ct-floating-bar .price * { color: #F6F0E2 !important; }
+html body .ct-floating-bar .button, html body .ct-floating-bar button { border-color: #F6F0E2 !important; color: #F6F0E2 !important; background: transparent !important; }
+html body .ct-floating-bar .button:hover, html body .ct-floating-bar button:hover { background: #F6F0E2 !important; color: var(--lil-green) !important; }
+
+/* ---------- 14. STRONA PRODUKTU: rozłożenie miejsca ---------- */
+/* zdjęcie jedzie razem z przewijaniem, więc obok długiego opisu nie ma pustej dziury */
+@media (min-width: 1000px) {
+  body.single-product .product-entry-wrapper > .woocommerce-product-gallery { position: sticky !important; top: 150px; align-self: flex-start; }
+  body.single-product .product-entry-wrapper { align-items: flex-start !important; overflow: visible !important; }
+}
+/* mniej drobiazgów pod przyciskiem koszyka */
+body.single-product .ct-product-additional-actions, body.single-product .product_meta .sku_wrapper, body.single-product .ct-share-box { display: none !important; }
+body.single-product .product_meta { font-size: 12px !important; border-top: 0 !important; padding-top: 0 !important; margin-top: 8px !important; }
+body.single-product .entry-summary > * { margin-bottom: 18px !important; }
+body.single-product .entry-summary .ct-product-divider, body.single-product .entry-summary hr { margin: 12px 0 !important; }
+body.single-product .woocommerce-tabs { margin-top: 40px !important; padding-top: 0 !important; }
+/* opinie: bez zepsutych awatarów */
+.commentlist img.avatar, .commentlist .ct-media-container { display: none !important; }
