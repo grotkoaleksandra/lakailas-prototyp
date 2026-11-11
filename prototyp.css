@@ -153,3 +153,35 @@ ul.products .star-rating { margin-inline: auto !important; font-size: 12px !impo
 ul.products .price { font-size: 15px !important; }
 ul.products .ct-woo-card-actions { margin-top: 6px !important; margin-bottom: 0 !important; }
 ul.products .ct-woo-card-actions .button { padding: 10px 20px !important; font-size: 11px !important; }
+
+/* ---------- 9. STRONA GŁÓWNA: blog osobno od aktualności ---------- */
+.lil-blog-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 24px 0 28px; padding-top: 40px; border-top: 1px solid var(--lil-line); }
+.lil-blog-head h2 { margin: 0 !important; font-size: 40px !important; }
+.lil-blog-head a { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+/* ---------- 10. SZABLON STRONY PRODUKTU ---------- */
+/* zdjęcie: kwadrat, bez przycinania butelki, bez kółka ładowania filmu */
+.woocommerce-product-gallery .ct-media-container img { aspect-ratio: 1 / 1 !important; object-fit: cover !important; }
+.ct-video-indicator { display: none !important; }
+/* ramka rabatu: jasna zamiast ciemnej */
+.entry-summary div[style*="#0F3A3C"] { background: var(--lil-sand) !important; color: var(--lil-ink) !important; border: 0 !important; border-radius: 2px !important; font-size: 14px; }
+.entry-summary .woocommerce-product-details__short-description { text-align: left !important; }
+.entry-summary .woocommerce-product-details__short-description * { text-align: left !important; }
+/* zamiast kart: opis w rozwijanych zakładkach, opinie zawsze widoczne */
+body.lil-product .woocommerce-tabs ul.tabs { display: none !important; }
+body.lil-product .woocommerce-tabs .woocommerce-Tabs-panel { display: block !important; }
+body.lil-product #tab-additional_information { display: none !important; }
+.lil-product-info { max-width: 860px; margin: 0 auto; }
+.lil-intro { margin-bottom: 28px; }
+.lil-acc { border-top: 1px solid var(--lil-line); }
+.lil-acc details { border-bottom: 1px solid var(--lil-line); }
+.lil-acc summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-family: var(--lil-font-head) !important; font-size: 24px; font-weight: 600; color: var(--lil-green); }
+.lil-acc summary::-webkit-details-marker { display: none; }
+.lil-acc summary::after { content: "+"; font-family: var(--lil-font-body); font-size: 22px; font-weight: 400; }
+.lil-acc details[open] summary::after { content: "–"; }
+.lil-acc-body { padding: 0 0 24px; }
+.lil-acc-body > * { margin-top: 0 !important; margin-bottom: 14px !important; text-align: left !important; }
+.lil-acc-body h2, .lil-acc-body h3, .lil-acc-body h4, .lil-acc-body h5 { font-size: 20px !important; margin-top: 18px !important; }
+.lil-acc-body img { border-radius: 2px; }
+body.lil-product #tab-reviews { max-width: 860px; margin: 56px auto 0; }
+body.lil-product .woocommerce-Reviews-title { font-size: 34px !important; text-align: center; }
