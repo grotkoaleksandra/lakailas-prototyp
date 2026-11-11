@@ -68,4 +68,24 @@
     desc.innerHTML = ''; if (intro.childNodes.length) wrap.appendChild(intro); wrap.appendChild(acc); desc.appendChild(wrap);
     document.body.classList.add('lil-product');
   }
+
+  // opinie: 5 najnowszych, reszta po kliknięciu
+  var list = document.querySelector('body.single-product #reviews .commentlist');
+  if (list) {
+    var items = [].filter.call(list.children, function (li) { return li.tagName === 'LI'; });
+    var when = function (li) { var t = li.querySelector('time'); var d = t && Date.parse(t.getAttribute('datetime')); return d || 0; };
+    items.sort(function (a, b) { return when(b) - when(a); }).forEach(function (li) { list.appendChild(li); });
+    if (items.length > 5) {
+      items.slice(5).forEach(function (li) { li.classList.add('lil-rev-more'); li.hidden = true; });
+      var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'button lil-rev-btn';
+      btn.textContent = 'Przeczytaj wszystkie opinie (' + items.length + ')';
+      btn.onclick = function () {
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        items.slice(5).forEach(function (li) { li.hidden = open; });
+        btn.setAttribute('aria-expanded', String(!open));
+        btn.textContent = open ? 'Przeczytaj wszystkie opinie (' + items.length + ')' : 'Pokaż mniej opinii';
+      };
+      list.parentNode.insertBefore(btn, list.nextSibling);
+    }
+  }
 })();
