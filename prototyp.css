@@ -106,3 +106,50 @@ html body #header [data-device] [data-row="middle"] { background-color: transpar
 html body #header.lil-scrolled [data-device] [data-row="middle"] { background-color: rgba(250, 241, 222, .93) !important; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--lil-line) !important; }
 #header .sub-menu, #header .sub-menu .ct-menu-link { color: var(--lil-ink) !important; }
 #header .sub-menu { background-color: var(--lil-cream) !important; }
+
+/* ---------- 6. BEZ FIOLETU: akcentem jest ciemna zieleń ---------- */
+:root, body {
+  --lil-plum: var(--lil-green);
+  --theme-palette-color-1: #17332C !important;
+  --theme-palette-color-2: #5F7D6E !important;
+  --theme-link-initial-color: #17332C !important;
+  --theme-link-hover-color: #5F7D6E !important;
+}
+a { color: var(--lil-green); }
+.entry-meta, .entry-meta a, .meta-categories a, .woocommerce-breadcrumb, .woocommerce-breadcrumb a, .ct-breadcrumbs, .ct-breadcrumbs a { color: #6B7A72 !important; }
+.ct-back-to-top { background: var(--lil-green) !important; color: var(--lil-cream) !important; }
+.lil-crt-band, [class*="lil-crt-band"] { background: var(--lil-green) !important; }
+#flexiblecookies_cookie_banner, .flexible-cookies-reopen-settings { display: none !important; }
+
+/* ---------- 7. PRZYCISKI: sam obrys, bez wypełnienia ---------- */
+.button, a.button, button.button, .wp-block-button__link, .kb-button, .kt-button, .ct-button, .wp-element-button,
+button[type="submit"], input[type="submit"], .single_add_to_cart_button, .added_to_cart, .lil-hero-btn, .ll-wh-btn, .btn-o {
+  background: transparent !important; background-image: none !important;
+  color: var(--lil-green) !important; border: 1px solid var(--lil-green) !important;
+  border-radius: 2px !important; box-shadow: none !important;
+  text-transform: uppercase !important; letter-spacing: .12em !important;
+  font-size: 12px !important; font-weight: 600 !important;
+  padding: 13px 26px !important; min-height: 0 !important; height: auto !important;
+  transition: background-color .2s, color .2s;
+}
+.button:hover, a.button:hover, .wp-block-button__link:hover, .kb-button:hover, .kt-button:hover, .ct-button:hover, .wp-element-button:hover,
+button[type="submit"]:hover, input[type="submit"]:hover, .single_add_to_cart_button:hover, .lil-hero-btn:hover, .ll-wh-btn:hover {
+  background: var(--lil-green) !important; color: var(--lil-cream) !important;
+}
+.kb-button .kt-btn-inner-text, .button span { color: inherit !important; }
+/* przycisk na ciemnym zdjęciu webinaru */
+.lil-slide-web .ll-wh-btn { color: #fff !important; border-color: #fff !important; background: rgba(23,51,44,.45) !important; width: auto !important; }
+/* małe okrągłe przyciski na kartach zostają ikonami */
+.ct-woo-card-extra .ct-button, .ct-wishlist-button-archive, .ct-compare-button-archive, .ct-open-quick-view { border: 0 !important; padding: 8px !important; }
+
+/* ---------- 8. KARTY PRODUKTÓW: ciaśniej, bez listy kategorii ---------- */
+ul.products li.product .entry-meta, [data-products] .product .entry-meta { display: none !important; }
+ul.products li.product, [data-products] .product { --product-element-spacing: 6px; row-gap: 0 !important; }
+ul.products li.product > *, [data-products] .product > * { margin-top: 0 !important; margin-bottom: 8px !important; }
+ul.products li.product figure, [data-products] .product figure { margin-bottom: 16px !important; }
+ul.products .woocommerce-loop-product__title { font-size: 22px !important; line-height: 1.15 !important; }
+ul.products .custom-loop-extra-text, ul.products .custom-loop-extra-text p { font-size: 14px !important; margin: 0 !important; color: #6B7A72 !important; }
+ul.products .star-rating { margin-inline: auto !important; font-size: 12px !important; }
+ul.products .price { font-size: 15px !important; }
+ul.products .ct-woo-card-actions { margin-top: 6px !important; margin-bottom: 0 !important; }
+ul.products .ct-woo-card-actions .button { padding: 10px 20px !important; font-size: 11px !important; }
