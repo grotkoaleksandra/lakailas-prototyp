@@ -215,3 +215,19 @@ html body .kb-row-layout-id225_ce831d-96, html body .lil-crt-band { background: 
 .kb-row-layout-id225_ce831d-96::before, .kb-row-layout-id225_ce831d-96 .kt-row-layout-overlay { display: none !important; }
 .kb-row-layout-id225_ce831d-96 h1, .kb-row-layout-id225_ce831d-96 h2, .lil-crt-band h2 { color: var(--lil-green) !important; }
 .kb-row-layout-id225_ce831d-96 p, .lil-crt-band p { color: var(--lil-ink) !important; }
+
+/* ---------- 13. STRONA GŁÓWNA: sekcja „O mnie” ---------- */
+html body .kb-row-layout-id225_d394b6-a7 { background: var(--lil-cream) !important; }
+.kb-row-layout-id225_d394b6-a7 > .kt-row-column-wrap { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) !important; column-gap: 80px !important; align-items: center !important; max-width: 1140px !important; padding: 104px 24px !important; }
+.kb-row-layout-id225_d394b6-a7 figure.wp-block-video { margin: 0 !important; padding: 0 !important; }
+.kb-row-layout-id225_d394b6-a7 video { width: 100% !important; height: auto !important; aspect-ratio: 4 / 5 !important; object-fit: cover; display: block; border-radius: 2px; }
+.kb-row-layout-id225_d394b6-a7 .kadence-column225_961e3e-cf > .kt-inside-inner-col { display: flex; flex-direction: column; justify-content: center; }
+.kb-row-layout-id225_d394b6-a7 #wiecej > .kt-row-column-wrap { padding: 0 !important; }
+.kb-row-layout-id225_d394b6-a7 h2 { font-size: clamp(40px, 4.4vw, 60px) !important; line-height: 1.05 !important; margin: 0 0 28px !important; }
+.kb-row-layout-id225_d394b6-a7 h2::before { content: "Justyna Zawadzka"; display: block; font-family: var(--lil-font-body); font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #6B7A72; margin-bottom: 16px; }
+.kb-row-layout-id225_d394b6-a7 .kadence-column225_961e3e-cf p { max-width: 540px; margin: 0 0 18px !important; line-height: 1.75 !important; }
+.kb-row-layout-id225_d394b6-a7 .kadence-column225_961e3e-cf p:first-of-type { font-family: var(--lil-font-head) !important; font-size: 24px !important; line-height: 1.4 !important; color: var(--lil-green) !important; margin-bottom: 24px !important; }
+.kb-row-layout-id225_d394b6-a7 .kb-buttons-wrap, .kb-row-layout-id225_d394b6-a7 .wp-block-buttons { margin-top: 14px !important; gap: 12px !important; }
+@media (max-width: 860px) {
+  .kb-row-layout-id225_d394b6-a7 > .kt-row-column-wrap { grid-template-columns: 1fr !important; row-gap: 36px !important; padding: 56px 20px !important; }
+}
