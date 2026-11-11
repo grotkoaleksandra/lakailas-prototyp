@@ -195,3 +195,17 @@ body.lil-product .woocommerce-Reviews-title { font-size: 34px !important; text-a
 /* pasek z produktem na dole ekranu: jasny i czytelny */
 .ct-floating-bar { background: var(--lil-cream) !important; border-top: 1px solid var(--lil-line) !important; box-shadow: none !important; }
 .ct-floating-bar, .ct-floating-bar * { color: var(--lil-ink) !important; }
+
+/* ---------- 11. ROZWIJANE MENU „SKLEP”: jasne, bez fioletu ---------- */
+html body #llmm-overlay, html body #llmm-overlay .llmm-inner { background: var(--lil-cream) !important; color: var(--lil-ink) !important; box-shadow: 0 12px 30px rgba(23,51,44,.08) !important; border-bottom: 1px solid var(--lil-line); }
+#llmm-overlay a, #llmm-overlay li, #llmm-overlay .llmm-best-name { color: var(--lil-green) !important; }
+#llmm-overlay .llmm-col-title { color: #6B7A72 !important; font-size: 11px !important; letter-spacing: .14em !important; }
+#llmm-overlay .llmm-best-desc { color: #6B7A72 !important; }
+#llmm-overlay .llmm-best-item { background: transparent !important; border: 0 !important; }
+#llmm-overlay .llmm-best-item:hover { background: var(--lil-sand) !important; }
+#llmm-overlay .llmm-list a:hover { color: #5F7D6E !important; }
+/* „Nie wiesz, od czego zacząć?” jako zwykły link z obrysem */
+html body #llmm-overlay .llmm-all-btn, html body #llmm-overlay .llmm-all-btn * { background: transparent !important; color: var(--lil-green) !important; }
+html body #llmm-overlay .llmm-all-btn { border: 1px solid var(--lil-green) !important; border-radius: 2px !important; text-transform: uppercase; letter-spacing: .12em; font-size: 12px !important; font-weight: 600; padding: 12px 20px !important; }
+html body #llmm-overlay .llmm-all-btn:hover, html body #llmm-overlay .llmm-all-btn:hover * { background: var(--lil-green) !important; color: var(--lil-cream) !important; }
+#llmm-overlay #menu-item-9463 > a, #llmm-overlay #menu-item-9463 > a * { color: var(--lil-green) !important; }
