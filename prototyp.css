@@ -185,3 +185,13 @@ body.lil-product #tab-additional_information { display: none !important; }
 .lil-acc-body img { border-radius: 2px; }
 body.lil-product #tab-reviews { max-width: 860px; margin: 56px auto 0; }
 body.lil-product .woocommerce-Reviews-title { font-size: 34px !important; text-align: center; }
+
+/* ikony w listach opisu: zwykły mały rozmiar */
+.lil-product-info svg { width: 1em !important; height: 1em !important; flex: none; }
+.lil-product-info li { text-align: left; }
+.lil-product-info .kt-svg-icon-list-item-wrap, .lil-product-info li:has(> svg), .lil-product-info li:has(> .kt-svg-icon-list-single) { display: flex; gap: 10px; align-items: baseline; }
+.lil-product-info ul:has(svg) { list-style: none; padding-left: 0; }
+
+/* pasek z produktem na dole ekranu: jasny i czytelny */
+.ct-floating-bar { background: var(--lil-cream) !important; border-top: 1px solid var(--lil-line) !important; box-shadow: none !important; }
+.ct-floating-bar, .ct-floating-bar * { color: var(--lil-ink) !important; }
