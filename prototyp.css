@@ -71,3 +71,34 @@ h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
 /* ikony zostają ikonami */
 [class*="fa-"], .dashicons, [class^="icon-"], .star-rating, .star-rating * { font-family: revert-layer; }
 .star-rating, .star-rating::before, .star-rating span::before { font-family: star !important; }
+
+/* nagłówek ciemnozielony także na stronie głównej */
+body.home #header [data-row] { background-color: var(--lil-green) !important; }
+
+/* ---------- 3. STRONA GŁÓWNA: hero z przewijanymi slajdami ---------- */
+.lil-hero { position: relative; line-height: 1.4 !important; }
+.lil-slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.lil-slides::-webkit-scrollbar { display: none; }
+.lil-slide { position: relative; flex: 0 0 100%; scroll-snap-align: start; aspect-ratio: 2 / 1; overflow: hidden; container-type: inline-size; }
+.lil-slide img { width: 100% !important; height: 100% !important; object-fit: cover; object-position: right center; }
+.lil-slide-web img { object-position: center; }
+.lil-slide-web .ll-wh-btn { top: 90% !important; height: 7.3% !important; }
+.lil-hero-txt { position: absolute; left: 6%; top: 50%; transform: translateY(-50%); width: 36%; display: flex; flex-direction: column; gap: clamp(8px, 1.6cqw, 22px); align-items: flex-start; }
+.lil-hero-txt h2 { margin: 0 !important; font-size: clamp(20px, 4.2cqw, 68px) !important; line-height: 1.05 !important; color: var(--lil-green) !important; }
+.lil-hero-txt p { margin: 0 !important; font-size: clamp(12px, 1.35cqw, 20px) !important; color: var(--lil-ink) !important; line-height: 1.5 !important; }
+.lil-hero-btn { display: inline-flex; padding: clamp(8px, 1cqw, 16px) clamp(16px, 2.4cqw, 36px); border-radius: 40px; background: var(--lil-plum); color: #fff !important; font-weight: 600; font-size: clamp(12px, 1.2cqw, 18px); text-decoration: none; letter-spacing: .04em; }
+.lil-arr { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(250,241,222,.85); color: var(--lil-green); font-size: 18px; cursor: pointer; line-height: 1; }
+.lil-prev { left: 16px; } .lil-next { right: 16px; }
+.lil-dots { position: absolute; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; gap: 8px; }
+.lil-dots button { width: 34px; height: 4px; padding: 0; border: 0; border-radius: 2px; background: rgba(23,51,44,.28); cursor: pointer; }
+.lil-dots button.on { background: var(--lil-green); }
+@media (max-width: 700px) {
+  .lil-slide { aspect-ratio: 16 / 10; }
+  .lil-hero-txt { width: 40%; left: 5%; }
+  .lil-hero-txt p { display: none; }
+  .lil-arr { display: none; }
+}
+
+/* ---------- 4. KARTY PRODUKTÓW: kwadratowe zdjęcia ---------- */
+ul.products .ct-media-container, [data-products] .ct-media-container { aspect-ratio: 1 / 1 !important; }
+ul.products .ct-media-container img, [data-products] .ct-media-container img { aspect-ratio: 1 / 1 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; }
